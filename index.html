@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Living - Home Decor & Interior Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background-color: #d35400;
+        }
+
+        /* Featured Categories */
+        .categories {
+            padding: 5rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .categories-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: var(--white);
+        }
+
+        .category-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Featured Products */
+        .products {
+            padding: 5rem 2rem;
+        }
+
+        .products-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #d35400;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .lightbox-content {
+            background: var(--white);
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            color: var(--text-color);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .lightbox-close:hover {
+            background: var(--accent-color);
+            color: var(--white);
+        }
+
+        .product-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .product-details img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-details-info {
+            padding: 1rem;
+        }
+
+        .product-details-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .product-details-price {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-details-description {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .add-to-cart {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .product-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        #mainProductImage {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .additional-images {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+        }
+
+        .additional-images img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .additional-images img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Add slideshow styles */
+        .product-slideshow {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .slideshow-images {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .slideshow-images img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            visibility: hidden;
+        }
+
+        .slideshow-images img.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slideshow-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            z-index: 1;
+        }
+
+        .slideshow-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .slideshow-dot.active {
+            background: var(--white);
+        }
+
+        /* Add Cart Styles */
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            margin-left: 2rem;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .cart-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100%;
+            background: var(--white);
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            z-index: 2000;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .cart-close {
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--light-bg);
+            border-radius: 5px;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cart-item-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cart-item-remove {
+            color: #e74c3c;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .checkout-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .checkout-button:hover {
+            background: #d35400;
+        }
+
+        /* Payment Form Styles */
+        .payment-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 3000;
+            padding: 2rem;
+        }
+
+        .payment-form {
+            background: var(--white);
+            max-width: 500px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .payment-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.8rem;
+            color: var(--text-color);
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--light-bg);
+            transition: all 0.3s;
+            z-index: 1;
+        }
+
+        .payment-close:hover {
+            background: var(--accent-color);
+            color: var(--white);
+        }
+
+        .payment-form h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .card-details {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .cart-overlay {
+                width: 100%;
+            }
+            
+            .card-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Update payment form buttons style */
+        .payment-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .cancel-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #e74c3c;
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .cancel-button:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Elegant Living</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#categories">Categories</a>
+                <a href="#products">Products</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="cart-icon" onclick="toggleCart()">
+                🛒 <span class="cart-count">0</span>
+            </div>
+            <div class="mobile-menu-btn">☰</div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transform Your Space</h1>
+            <p>Discover unique pieces that reflect your style and elevate your home's ambiance</p>
+            <a href="#products" class="cta-button">Shop Collection</a>
+        </div>
+    </section>
+
+    <section class="categories" id="categories">
+        <h2 class="section-title">Featured Categories</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25" alt="Living Room">
+                <div class="category-content">
+                    <h3>Living Room</h3>
+                    <p>Create a cozy atmosphere</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" alt="Bedroom">
+                <div class="category-content">
+                    <h3>Bedroom</h3>
+                    <p>Your peaceful retreat</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1" alt="Kitchen">
+                <div class="category-content">
+                    <h3>Kitchen</h3>
+                    <p>Modern cooking space</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid">
+            <div class="product-card" onclick="showProduct('sofa')">
+                <div class="product-image">
+                    <div class="product-slideshow" id="sofaSlideshow">
+                        <div class="slideshow-images">
+                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="Modern Sofa" class="active">
+                            <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513" alt="Modern Sofa">
+                            <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e" alt="Modern Sofa">
+                            <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a" alt="Modern Sofa">
+                        </div>
+                        <div class="slideshow-nav">
+                            <span class="slideshow-dot active" onclick="showSlide(0, 'sofa', event)"></span>
+                            <span class="slideshow-dot" onclick="showSlide(1, 'sofa', event)"></span>
+                            <span class="slideshow-dot" onclick="showSlide(2, 'sofa', event)"></span>
+                            <span class="slideshow-dot" onclick="showSlide(3, 'sofa', event)"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Modern Comfort Sofa</h3>
+                    <p class="product-price">€799</p>
+                </div>
+            </div>
+            <div class="product-card" onclick="showProduct('lamp')">
+                <div class="product-image">
+                    <div class="product-slideshow" id="lampSlideshow">
+                        <div class="slideshow-images">
+                            <img src="https://images.unsplash.com/photo-1507394650004-9c24efb4e2c7" alt="Elegant Table Lamp" class="active">
+                            <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15" alt="Elegant Table Lamp">
+                            <img src="https://images.unsplash.com/photo-1490323914169-4d5db28abf90" alt="Elegant Table Lamp">
+                            <img src="https://images.unsplash.com/photo-1575482977110-459d4dc15450" alt="Elegant Table Lamp">
+                        </div>
+                        <div class="slideshow-nav">
+                            <span class="slideshow-dot active" onclick="showSlide(0, 'lamp', event)"></span>
+                            <span class="slideshow-dot" onclick="showSlide(1, 'lamp', event)"></span>
+                            <span class="slideshow-dot" onclick="showSlide(2, 'lamp', event)"></span>
+                            <span class="slideshow-dot" onclick="showSlide(3, 'lamp', event)"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Elegant Table Lamp</h3>
+                    <p class="product-price">€119</p>
+                </div>
+            </div>
+            <div class="product-card" onclick="showProduct('vase')">
+                <div class="product-image">
+                    <div class="product-slideshow" id="vaseSlideshow">
+                        <div class="slideshow-images">
+                            <img src="https://images.unsplash.com/photo-1532372320978-9b6d0a2d704a" alt="Decorative Vase" class="active">
+                            <img src="https://images.unsplash.com/photo-1581783342308-f792dbdd27c5" alt="Decorative Vase">
+                            <img src="https://images.unsplash.com/photo-1578500351865-d6c3d9f35f85" alt="Decorative Vase">
+                            <img src="https://images.unsplash.com/photo-1584589167171-541ce45f1eea" alt="Decorative Vase">
+                        </div>
+                        <div class="slideshow-nav">
+                            <span class="slideshow-dot active" onclick="showSlide(0, 'vase', event)"></span>
+                            <span class="slideshow-dot" onclick="showSlide(1, 'vase', event)"></span>
+                            <span class="slideshow-dot" onclick="showSlide(2, 'vase', event)"></span>
+                            <span class="slideshow-dot" onclick="showSlide(3, 'vase', event)"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Ceramic Vase Set</h3>
+                    <p class="product-price">€69</p>
+                </div>
+            </div>
+            <div class="product-card" onclick="showProduct('art')">
+                <div class="product-image">
+                    <div class="product-slideshow" id="artSlideshow">
+                        <div class="slideshow-images">
+                            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36" alt="Wall Art" class="active">
+                            <img src="https://images.unsplash.com/photo-1549887534-1541e9326642" alt="Wall Art">
+                            <img src="https://images.unsplash.com/photo-1571757767119-68b8dbed8c97" alt="Wall Art">
+                            <img src="https://images.unsplash.com/photo-1576022162028-7808b4a41d08" alt="Wall Art">
+                            <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342" alt="Wall Art">
+                        </div>
+                        <div class="slideshow-nav">
+                            <span class="slideshow-dot active" onclick="showSlide(0, 'art', event)"></span>
+                            <span class="slideshow-dot" onclick="showSlide(1, 'art', event)"></span>
+                            <span class="slideshow-dot" onclick="showSlide(2, 'art', event)"></span>
+                            <span class="slideshow-dot" onclick="showSlide(3, 'art', event)"></span>
+                            <span class="slideshow-dot" onclick="showSlide(4, 'art', event)"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Abstract Wall Art</h3>
+                    <p class="product-price">€179</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Lightbox -->
+    <div class="lightbox" id="productLightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <div class="product-details" id="productDetails">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Join Our Newsletter</h2>
+            <p>Subscribe to receive updates on new products and special offers</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We curate beautiful home decor pieces to help you create your dream space.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Email: info@elegantliving.com</li>
+                    <li>Phone: (555) 123-4567</li>
+                    <li>Address: 123 Decor Street</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Pinterest</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Elegant Living. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <span class="cart-close" onclick="toggleCart()">×</span>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">€0.00</span>
+        </div>
+        <button class="checkout-button" onclick="showPayment()">Proceed to Checkout</button>
+    </div>
+
+    <!-- Update Payment Form -->
+    <div class="payment-overlay" id="paymentOverlay">
+        <div class="payment-form">
+            <span class="payment-close" onclick="hidePayment()">&times;</span>
+            <h2>Payment Details</h2>
+            <form id="paymentForm" onsubmit="processPayment(event)">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Card Number</label>
+                    <input type="text" required placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNumber(this)">
+                </div>
+                <div class="card-details">
+                    <div class="form-group">
+                        <label>Expiry Date</label>
+                        <input type="text" required placeholder="MM/YY" maxlength="5" oninput="formatExpiryDate(this)">
+                    </div>
+                    <div class="form-group">
+                        <label>CVV</label>
+                        <input type="text" required placeholder="123" maxlength="3">
+                    </div>
+                </div>
+                <div class="payment-buttons">
+                    <button type="submit" class="checkout-button">Pay Now</button>
+                    <button type="button" class="cancel-button" onclick="hidePayment()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Product lightbox functionality
+        const products = {
+            sofa: {
+                title: "Modern Comfort Sofa",
+                price: "€799",
+                image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
+                additionalImages: [
+                    "https://images.unsplash.com/photo-1550254478-ead40cc54513",
+                    "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e",
+                    "https://images.unsplash.com/photo-1484101403633-562f891dc89a",
+                    "https://images.unsplash.com/photo-1549187774-b4e9b0445b41",
+                    "https://images.unsplash.com/photo-1540574163026-643ea20ade25"
+                ],
+                description: "Experience ultimate comfort with our modern sofa. Features premium fabric upholstery, ergonomic design, and sturdy construction. Perfect for contemporary living spaces. Available in multiple colors.",
+                features: [
+                    "Premium fabric upholstery",
+                    "Ergonomic design",
+                    "High-density foam cushions",
+                    "Solid wood frame",
+                    "3-year warranty"
+                ]
+            },
+            lamp: {
+                title: "Elegant Table Lamp",
+                price: "€119",
+                image: "https://images.unsplash.com/photo-1507394650004-9c24efb4e2c7",
+                additionalImages: [
+                    "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15",
+                    "https://images.unsplash.com/photo-1490323914169-4d5db28abf90",
+                    "https://images.unsplash.com/photo-1575482977110-459d4dc15450",
+                    "https://images.unsplash.com/photo-1530603907829-659dc4bd558f",
+                    "https://images.unsplash.com/photo-1534279561235-3e8ed3d3ff00"
+                ],
+                description: "Add sophistication to any room with this elegant table lamp. Features adjustable brightness, modern design, and energy-efficient LED lighting.",
+                features: [
+                    "Adjustable brightness",
+                    "Energy-efficient LED",
+                    "Touch controls",
+                    "2-year warranty"
+                ]
+            },
+            vase: {
+                title: "Ceramic Vase Set",
+                price: "€69",
+                image: "https://images.unsplash.com/photo-1532372320978-9b6d0a2d704a",
+                additionalImages: [
+                    "https://images.unsplash.com/photo-1581783342308-f792dbdd27c5",
+                    "https://images.unsplash.com/photo-1578500351865-d6c3d9f35f85",
+                    "https://images.unsplash.com/photo-1584589167171-541ce45f1eea",
+                    "https://images.unsplash.com/photo-1612620535624-f6695d4864bb",
+                    "https://images.unsplash.com/photo-1580656449548-d09d9fec7e63"
+                ],
+                description: "Beautiful handcrafted ceramic vase set perfect for any room. Each piece is uniquely designed and carefully crafted by artisans. The set includes three different sizes of vases with elegant minimalist designs.",
+                features: [
+                    "Handcrafted ceramic",
+                    "Set of 3 vases in different sizes",
+                    "Unique minimalist design",
+                    "Perfect for fresh or dried flowers",
+                    "Matte finish",
+                    "Waterproof interior"
+                ]
+            },
+            art: {
+                title: "Abstract Wall Art",
+                price: "€179",
+                image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36",
+                additionalImages: [
+                    "https://images.unsplash.com/photo-1549887534-1541e9326642",
+                    "https://images.unsplash.com/photo-1571757767119-68b8dbed8c97",
+                    "https://images.unsplash.com/photo-1576022162028-7808b4a41d08",
+                    "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342",
+                    "https://images.unsplash.com/photo-1582582494705-f8ce0b0c24f0"
+                ],
+                description: "Make a statement with this stunning abstract wall art. Perfect for modern and contemporary interiors.",
+                features: [
+                    "Original artwork",
+                    "High-quality print",
+                    "Wooden frame included",
+                    "Certificate of authenticity"
+                ]
+            }
+        };
+
+        function showProduct(productId) {
+            const product = products[productId];
+            const lightbox = document.getElementById('productLightbox');
+            const details = document.getElementById('productDetails');
+            
+            let additionalImagesHtml = '';
+            if (product.additionalImages) {
+                additionalImagesHtml = `
+                    <div class="additional-images">
+                        <img src="${product.image}" alt="${product.title}" onclick="changeMainImage(this.src)">
+                        ${product.additionalImages.map(img => 
+                            `<img src="${img}" alt="${product.title}" onclick="changeMainImage(this.src)">`
+                        ).join('')}
+                    </div>
+                `;
+            }
+            
+            details.innerHTML = `
+                <div class="product-images">
+                    <img src="${product.image}" alt="${product.title}" id="mainProductImage">
+                    ${additionalImagesHtml}
+                </div>
+                <div class="product-details-info">
+                    <h2>${product.title}</h2>
+                    <p class="product-details-price">${product.price}</p>
+                    <p class="product-details-description">${product.description}</p>
+                    <h3>Features:</h3>
+                    <ul>
+                        ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                    <button class="add-to-cart" onclick="addToCart(products['${productId}'])">Add to Cart</button>
+                </div>
+            `;
+            
+            lightbox.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function changeMainImage(src) {
+            document.getElementById('mainProductImage').src = src;
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('productLightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox when clicking outside
+        document.getElementById('productLightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Remove the duplicate initialization code and simplify the slideshow logic
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize all slideshows
+            ['sofa', 'lamp', 'vase', 'art'].forEach(productId => {
+                updateProductCard(productId);
+                initSlideshow(productId);
+            });
+        });
+
+        let slideshowIntervals = {};
+        let currentSlides = {
+            sofa: 0,
+            lamp: 0,
+            vase: 0,
+            art: 0
+        };
+
+        function initSlideshow(productId) {
+            if (slideshowIntervals[productId]) {
+                clearInterval(slideshowIntervals[productId]);
+            }
+            
+            slideshowIntervals[productId] = setInterval(() => {
+                nextSlide(productId);
+            }, 3000);
+        }
+
+        function showSlide(index, productId, event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            
+            const images = document.querySelectorAll(`#${productId}Slideshow .slideshow-images img`);
+            const dots = document.querySelectorAll(`#${productId}Slideshow .slideshow-dot`);
+            
+            // First set all images to inactive
+            images.forEach(img => {
+                img.classList.remove('active');
+                // Add a small delay before hiding to ensure smooth transition
+                setTimeout(() => {
+                    if (!img.classList.contains('active')) {
+                        img.style.visibility = 'hidden';
+                    }
+                }, 500);
+            });
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show the selected image
+            currentSlides[productId] = index;
+            images[index].style.visibility = 'visible';
+            images[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function nextSlide(productId) {
+            const images = document.querySelectorAll(`#${productId}Slideshow .slideshow-images img`);
+            currentSlides[productId] = (currentSlides[productId] + 1) % images.length;
+            showSlide(currentSlides[productId], productId);
+        }
+
+        // Add Cart and Payment functionality
+        let cart = [];
+        
+        function addToCart(product) {
+            cart.push(product);
+            updateCartCount();
+            updateCartItems();
+            toggleCart();
+        }
+
+        function updateCartCount() {
+            const cartCount = document.querySelector('.cart-count');
+            cartCount.textContent = cart.length;
+        }
+
+        function updateCartItems() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            let total = 0;
+
+            cartItems.innerHTML = cart.map((item, index) => {
+                total += parseFloat(item.price.replace('€', ''));
+                return `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.title}">
+                        <div class="cart-item-info">
+                            <h3>${item.title}</h3>
+                            <p>${item.price}</p>
+                        </div>
+                        <span class="cart-item-remove" onclick="removeFromCart(${index})">×</span>
+                    </div>
+                `;
+            }).join('');
+
+            cartTotal.textContent = `€${total.toFixed(2)}`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartCount();
+            updateCartItems();
+        }
+
+        function toggleCart() {
+            const cartOverlay = document.getElementById('cartOverlay');
+            cartOverlay.style.display = cartOverlay.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showPayment() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            document.getElementById('paymentOverlay').style.display = 'block';
+        }
+
+        function formatCardNumber(input) {
+            let value = input.value.replace(/\D/g, '');
+            value = value.replace(/(\d{4})/g, '$1 ').trim();
+            input.value = value;
+        }
+
+        function formatExpiryDate(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.slice(0,2) + '/' + value.slice(2);
+            }
+            input.value = value;
+        }
+
+        function processPayment(event) {
+            event.preventDefault();
+            alert('Payment processed successfully! Thank you for your purchase.');
+            cart = [];
+            updateCartCount();
+            updateCartItems();
+            document.getElementById('paymentOverlay').style.display = 'none';
+            document.getElementById('cartOverlay').style.display = 'none';
+            document.getElementById('paymentForm').reset();
+        }
+
+        // Update hidePayment function to handle overlay click
+        function hidePayment() {
+            document.getElementById('paymentOverlay').style.display = 'none';
+            document.getElementById('paymentForm').reset();
+        }
+
+        // Close payment form when clicking outside
+        document.getElementById('paymentOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hidePayment();
+            }
+        });
+
+        // Update product card HTML to show 5 images for each product
+        function updateProductCard(productId) {
+            const slideshow = document.querySelector(`#${productId}Slideshow .slideshow-images`);
+            const dots = document.querySelector(`#${productId}Slideshow .slideshow-nav`);
+            
+            if (slideshow && products[productId].additionalImages) {
+                slideshow.innerHTML = `
+                    <img src="${products[productId].image}" alt="${products[productId].title}" class="active">
+                    ${products[productId].additionalImages.map(img => 
+                        `<img src="${img}" alt="${products[productId].title}">`
+                    ).join('')}
+                `;
+                
+                dots.innerHTML = Array(products[productId].additionalImages.length + 1)
+                    .fill()
+                    .map((_, i) => `
+                        <span class="slideshow-dot${i === 0 ? ' active' : ''}" 
+                        onclick="showSlide(${i}, '${productId}', event)"></span>
+                    `).join('');
+            }
+        }
+    </script>
+</body>
+</html> 
